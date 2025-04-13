@@ -5,7 +5,7 @@ import Hero from './components/Hero'
 import DentalHealth from './components/DentalHealth'
 import Services from './components/Services'
 import Gallery from './components/Gallery'
-import Testimonials from './components/Testimonials'
+import Testimonials from './components/Testimonials' // Yo'li to‘g‘rimi?
 import AppointmentForm from './components/AppointmentForm'
 import ContactInfo from './components/ContactInfo'
 import Footer from './components/Footer'
@@ -25,17 +25,17 @@ function App() {
             <Grid templateRows="auto auto auto auto" gap={12}>
               <Hero />
               < WhyChooseUs />
-              <DentalHealth />
               <Services />
               <Gallery />
-              <Testimonials />
+              <Testimonials/>
+              <ContactInfo />
             </Grid>
           )}
           
           {activeTab === 'services' && <Services detailed />}
           {activeTab === 'gallery' && <Gallery detailed />}
-          {activeTab === 'appointment' && <AppointmentForm />}
           {activeTab === 'contact' && <ContactInfo />}
+          {activeTab === 'appointment' && <AppointmentForm />}
         </Box>
         
         <Footer />

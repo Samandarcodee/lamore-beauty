@@ -14,7 +14,6 @@ const Header = ({ activeTab, setActiveTab }) => {
     { id: 'home', label: 'Bosh Sahifa' },
     { id: 'services', label: 'Xizmatlar' },
     { id: 'gallery', label: 'Galereya' },
-    { id: 'appointment', label: 'Online Yozilish' },
     { id: 'contact', label: 'Kontaktlar' },
   ]
 

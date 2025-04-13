@@ -1,6 +1,13 @@
-import { Box, Flex, Heading, Text, Button, Image, useBreakpointValue, Icon, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react'
+import {
+  Box, Flex, Heading, Text, Button, Image,
+  useBreakpointValue, Icon, useDisclosure,
+  Modal, ModalOverlay, ModalContent, ModalHeader,
+  ModalCloseButton, ModalBody
+} from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { FaPhone } from 'react-icons/fa'
+import React from 'react'
+import BookingForm from './BookingForm'
 
 const MotionBox = motion(Box)
 const MotionImage = motion(Image)
@@ -11,8 +18,8 @@ const Hero = () => {
   const headingSize = useBreakpointValue({ base: 'xl', md: '2xl', lg: '3xl' })
 
   return (
-    <Box 
-      py={{ base: 8, md: 12, lg: 20 }} 
+    <Box
+      py={{ base: 8, md: 12, lg: 20 }}
       px={{ base: 4, md: 8 }}
       bgGradient="linear(to-r, #f9f5f0, #ffffff)"
     >
@@ -44,7 +51,7 @@ const Hero = () => {
               Sizning go'zalligingiz - <Box as="span" color="#957151">bizning faxrimiz</Box>
             </Heading>
 
-            <Text 
+            <Text
               fontFamily="'Poppins', sans-serif"
               fontSize={{ base: 'md', md: 'lg' }}
               color="gray.700"
@@ -72,7 +79,7 @@ const Hero = () => {
                 px={8}
                 rounded="lg"
                 boxShadow="0 4px 6px rgba(154, 107, 81, 0.3)"
-                _hover={{ 
+                _hover={{
                   transform: 'translateY(-2px)',
                   boxShadow: '0 6px 8px rgba(154, 107, 81, 0.4)',
                   bg: '#a57d5d'
@@ -86,27 +93,14 @@ const Hero = () => {
               </Button>
             </MotionBox>
 
-            <Button
-              variant="outline"
-              borderColor="#957151"
-              color="#957151"
-              _hover={{ bg: "#f5ebe4" }}
-              size={{ base: 'md', md: 'lg' }}
-            >
-              Xizmatlar
-            </Button>
+           
           </Flex>
 
           {/* Contact Info */}
-          <Flex mt={8} gap={4} align="center">
-            <Icon as={FaPhone} color="#957151" boxSize={5} />
-            <Text fontFamily="Poppins" fontWeight="500" color="gray.700">
-              Qo'ng'iroq qiling: +998 90 123 45 67
-            </Text>
-          </Flex>
+          
         </Box>
 
-        {/* Image Section - Hidden on Mobile */}
+        {/* Image Section */}
         {!isMobile && (
           <Box flex={1} order={{ base: 1, md: 2 }} position="relative">
             <Box
@@ -136,60 +130,15 @@ const Hero = () => {
         )}
       </Flex>
 
-      {/* Registration Modal */}
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      {/* BookingForm Modal */}
+      <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered>
         <ModalOverlay />
-        <ModalContent mx={4}>
-          <ModalHeader fontFamily="Poppins">
-            Online yozilish
-          </ModalHeader>
+        <ModalContent maxW="container.sm" p={4}>
+          <ModalHeader>Online yozilish</ModalHeader>
           <ModalCloseButton />
-          
           <ModalBody>
-            <Text mb={4}>Iltimos, quyidagi ma'lumotlarni to'ldiring:</Text>
-            
-            <Flex direction="column" gap={4}>
-              <input 
-                type="text" 
-                placeholder="Ismingiz" 
-                style={{
-                  padding: '12px',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '8px',
-                  fontFamily: 'Poppins, sans-serif'
-                }}
-              />
-              
-              <input 
-                type="tel" 
-                placeholder="Telefon raqamingiz" 
-                style={{
-                  padding: '12px',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '8px',
-                  fontFamily: 'Poppins, sans-serif'
-                }}
-              />
-            </Flex>
+            <BookingForm />
           </ModalBody>
-
-          <ModalFooter>
-            <Button 
-              colorScheme="gray" 
-              mr={3} 
-              onClick={onClose}
-              variant="outline"
-            >
-              Bekor qilish
-            </Button>
-            <Button 
-              bg="#957151" 
-              color="white"
-              _hover={{ bg: '#a57d5d' }}
-            >
-              Jo'natish
-            </Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </Box>

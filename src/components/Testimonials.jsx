@@ -1,5 +1,14 @@
-import { Box, Heading, SimpleGrid, Text, Flex, Icon } from '@chakra-ui/react'
+import {
+  Box,
+  Heading,
+  SimpleGrid,
+  Text,
+  Flex,
+  Icon,
+  Avatar
+} from '@chakra-ui/react'
 import { FaQuoteLeft } from 'react-icons/fa'
+import { StarIcon } from '@chakra-ui/icons'
 
 const Testimonials = () => {
   const testimonials = [
@@ -10,53 +19,79 @@ const Testimonials = () => {
       content: "LaMore saloniga bir necha yildan beri boraman. Mutaxassislarning malakasi va ishlar sifatiga hech qanday shubha yo'q. Har safar uydan chiqayotgandek his qilaman!",
       rating: 5
     },
-    // ... boshqa sharhlar
+    {
+      id: 2,
+      name: "Aziza Karimova",
+      role: "Yangi mijoz",
+      content: "Birinchi bor kelganimda juda hayratda qoldim. Muhit, xizmat va natija — hammasi yuqori darajada. Endi doimiy mijoz bo‘ldim!",
+      rating: 5
+    },
+    {
+      id: 3,
+      name: "Gulnoza Mahmudova",
+      role: "Mijoz",
+      content: "Xizmatlar juda professional. Ayniqsa, yuz parvarishi juda yoqdi. Boshqa joyga borishni xohlamayman endi.",
+      rating: 4
+    }
   ]
 
   return (
-    <Box id="testimonials" py={12} bg="gray.50">
+    <Box id="testimonials" py={16} bg="gray.50">
       <Box maxW="container.xl" mx="auto" px={4}>
-        <Heading 
-          as="h2" 
-          size="xl" 
-          fontFamily="heading" 
-          textAlign="center" 
-          color="brand.dark" 
+        <Heading
+          as="h2"
+          size="xl"
+          textAlign="center"
+          color="brand.dark"
           mb={12}
+          position="relative"
+          _after={{
+            content: '""',
+            position: 'absolute',
+            bottom: '-10px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '16',
+            height: '1px',
+            bg: 'brand.primary'
+          }}
         >
           Mijozlar Fikrlari
         </Heading>
-        
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
-          {testimonials.map(testimonial => (
-            <Box key={testimonial.id} bg="white" p={6} rounded="lg" shadow="md">
-              <Box color="brand.primary" mb={4}>
-                <Icon as={FaQuoteLeft} boxSize={6} />
-              </Box>
-              <Text fontStyle="italic" color="gray.600" mb={6}>{testimonial.content}</Text>
-              <Flex align="center">
-                <Box flex={1}>
-                  <Text fontWeight="semibold" color="brand.dark">{testimonial.name}</Text>
-                  <Text fontSize="sm" color="gray.500">{testimonial.role}</Text>
+
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
+          {testimonials.map(({ id, name, role, content, rating }) => (
+            <Box
+              key={id}
+              bg="white"
+              p={6}
+              rounded="2xl"
+              shadow="md"
+              transition="all 0.3s ease"
+              _hover={{ shadow: "xl", transform: "translateY(-4px)" }}
+            >
+              <Icon as={FaQuoteLeft} boxSize={6} color="brand.primary" mb={4} />
+
+              <Text fontStyle="italic" color="gray.700" mb={6} lineHeight="1.8">
+                {content}
+              </Text>
+
+              <Flex align="center" mt={4}>
+                <Avatar name={name} size="sm" mr={3} />
+                <Box>
+                  <Text fontWeight="bold" color="brand.dark">{name}</Text>
+                  <Text fontSize="sm" color="gray.500">{role}</Text>
                 </Box>
-                <Flex>
-                  {[...Array(5)].map((_, i) => (
-                    <Icon
-                      key={i}
-                      as={() => (
-                        <svg
-                          className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      )}
-                      boxSize={5}
-                      color={i < testimonial.rating ? 'yellow.400' : 'gray.300'}
-                    />
-                  ))}
-                </Flex>
+              </Flex>
+
+              <Flex mt={3}>
+                {[...Array(5)].map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    color={i < rating ? 'yellow.400' : 'gray.300'}
+                    boxSize={4}
+                  />
+                ))}
               </Flex>
             </Box>
           ))}

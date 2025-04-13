@@ -2,131 +2,123 @@ import {
   Box, Flex, Heading, Link, Text, Divider, Icon,
   UnorderedList, ListItem, SimpleGrid, useBreakpointValue
 } from '@chakra-ui/react'
-import { FaTelegram, FaInstagram, FaFacebook, FaMapMarkerAlt, FaPhone } from 'react-icons/fa'
+import {
+  FaTelegram, FaInstagram, FaFacebook,
+  FaMapMarkerAlt, FaPhone
+} from 'react-icons/fa'
 
 const Footer = () => {
   const isMobile = useBreakpointValue({ base: true, md: false })
 
   return (
-    <Box as="footer" bg="brand.900" color="white" pt={12} pb={8}>
+    <Box as="footer" bg="gray.900" color="gray.100" pt={14} pb={8}>
       <Box maxW="container.xl" mx="auto" px={{ base: 4, md: 6 }}>
-        <SimpleGrid
-          columns={{ base: 1, md: 2, lg: 4 }}
-          spacing={{ base: 8, md: 10 }}
-          mb={8}
-        >
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10} mb={10}>
           <Box>
             <Heading as="h3" size="md" color="brand.400" mb={4}>
               LaMore
             </Heading>
-            <Text color="gray.300" fontSize={{ base: 'sm', md: 'md' }}>
-              Sizning go'zalligingiz - bizning faxrimiz. Professional xizmat va yuqori sifat kafolati.
+            <Text fontSize="sm" color="gray.400" lineHeight="tall">
+              Sizning go‘zalligingiz – bizning faxrimiz. 
+              Professional xizmat va yuqori sifat kafolati.
             </Text>
           </Box>
-          
+
           <Box>
-            <Heading as="h4" size="sm" mb={4} color="white">
+            <Heading as="h4" size="sm" mb={4} fontWeight="semibold" color="gray.200">
               Tez havolalar
             </Heading>
-            <UnorderedList
-              styleType="none"
-              spacing={{ base: 2, md: 3 }}
-              fontSize={{ base: 'sm', md: 'md' }}
-            >
-              {['home', 'services', 'gallery', 'appointment', 'contact'].map((item) => (
-                <ListItem key={item}>
+            <UnorderedList styleType="none" spacing={2}>
+              {[
+                { id: 'home', name: 'Bosh sahifa' },
+                { id: 'services', name: 'Xizmatlar' },
+                { id: 'gallery', name: 'Galereya' },
+
+                { id: 'contact', name: 'Kontaktlar' },
+              ].map(link => (
+                <ListItem key={link.id}>
                   <Link
-                    href={`#${item}`}
-                    color="gray.300"
+                    href={`#${link.id}`}
+                    fontSize="sm"
+                    color="gray.400"
                     _hover={{ color: 'brand.300' }}
-                    display="inline-block"
-                    py={1}
+                    transition="0.2s ease"
                   >
-                    {item === 'home' && 'Bosh sahifa'}
-                    {item === 'services' && 'Xizmatlar'}
-                    {item === 'gallery' && 'Galereya'}
-                    {item === 'appointment' && 'Online yozilish'}
-                    {item === 'contact' && 'Kontaktlar'}
+                    {link.name}
                   </Link>
                 </ListItem>
               ))}
             </UnorderedList>
           </Box>
-          
+
           <Box>
-            <Heading as="h4" size="sm" mb={4} color="white">
+            <Heading as="h4" size="sm" mb={4} fontWeight="semibold" color="gray.200">
               Kontaktlar
             </Heading>
-            <UnorderedList
-              styleType="none"
-              spacing={{ base: 2, md: 3 }}
-              fontSize={{ base: 'sm', md: 'md' }}
-            >
+            <UnorderedList styleType="none" spacing={3} fontSize="sm">
               <ListItem>
                 <Flex align="center">
                   <Icon as={FaMapMarkerAlt} mr={2} color="brand.300" />
-                  <Text color="gray.300">
-                    Toshkent shahar, Mirzo Ulug'bek tumani
-                  </Text>
+                  Toshkent shahar, Mirzo Ulug'bek tumani
                 </Flex>
               </ListItem>
               <ListItem>
                 <Flex align="center">
                   <Icon as={FaPhone} mr={2} color="brand.300" />
-                  <Text color="gray.300">+998 90 123 45 67</Text>
+                  +998 90 123 45 67
                 </Flex>
               </ListItem>
             </UnorderedList>
           </Box>
-          
+
           <Box>
-            <Heading as="h4" size="sm" mb={4} color="white">
+            <Heading as="h4" size="sm" mb={4} fontWeight="semibold" color="gray.200">
               Ijtimoiy tarmoqlar
             </Heading>
-            <Flex gap={4} mb={{ base: 3, md: 4 }}>
+            <Flex gap={4} mb={3}>
               <Link href="https://t.me/lamore_salon" isExternal>
                 <Icon
                   as={FaTelegram}
                   boxSize={5}
-                  color="gray.300"
-                  _hover={{ color: 'brand.300' }}
+                  color="gray.400"
+                  _hover={{ color: 'brand.300', transform: 'scale(1.1)' }}
+                  transition="all 0.2s ease"
                 />
               </Link>
               <Link href="https://instagram.com/lamore_salon" isExternal>
                 <Icon
                   as={FaInstagram}
                   boxSize={5}
-                  color="gray.300"
-                  _hover={{ color: 'brand.300' }}
+                  color="gray.400"
+                  _hover={{ color: 'brand.300', transform: 'scale(1.1)' }}
+                  transition="all 0.2s ease"
                 />
               </Link>
               <Link href="https://facebook.com/lamore_salon" isExternal>
                 <Icon
                   as={FaFacebook}
                   boxSize={5}
-                  color="gray.300"
-                  _hover={{ color: 'brand.300' }}
+                  color="gray.400"
+                  _hover={{ color: 'brand.300', transform: 'scale(1.1)' }}
+                  transition="all 0.2s ease"
                 />
               </Link>
             </Flex>
-            <Text color="gray.300" fontSize={{ base: 'sm', md: 'md' }}>
-              Obuna bo'ling va yangiliklardan xabardor bo'ling
+            <Text fontSize="sm" color="gray.400">
+              Obuna bo‘ling va yangiliklardan xabardor bo‘ling.
             </Text>
           </Box>
         </SimpleGrid>
-        
-        <Divider borderColor="gray.700" my={{ base: 4, md: 6 }} />
-        
-        <Box
+
+        <Divider borderColor="gray.700" mb={6} />
+
+        <Text
           textAlign="center"
-          pt={{ base: 2, md: 4 }}
-          color="gray.400"
-          fontSize={{ base: 'xs', md: 'sm' }}
+          fontSize="xs"
+          color="gray.500"
         >
-          <Text>
-            &copy; {new Date().getFullYear()} LaMore Go'zallik Saloni. Barcha huquqlar himoyalangan.
-          </Text>
-        </Box>
+          &copy; {new Date().getFullYear()} LaMore Go‘zallik Saloni. Barcha huquqlar himoyalangan.
+        </Text>
       </Box>
     </Box>
   )
