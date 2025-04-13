@@ -10,8 +10,9 @@ import {
   const reasons = [
     {
       icon: FaSpa,
-      title: "Uyatchan atmosfera va qulaylik",
-      description: "Yoqimli, dam beruvchi muhit mijozlarga nafaqat tashqi ko'rinishini yaxshilash, balki stressni kamaytirish orqali umumiy holatini yaxshilashga yordam beradi."
+      title: "Yoqimli atmosfera va qulaylik",
+      description: "Dam beruvchi va yoqimli muhit nafaqat tashqi koʻrinishni yaxshilaydi, balki stressni kamaytirib, odamlarning umumiy holatini ham yaxshilaydi.    
+"
     },
     {
       icon: FaHandsHelping,
