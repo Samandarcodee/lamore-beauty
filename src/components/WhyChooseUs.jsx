@@ -63,19 +63,38 @@ const WhyChooseUsModern = () => {
       position="relative"
       overflow="hidden"
     >
-      {/* Dekorativ elementlar */}
+      {/* Right-aligned decorative element */}
       <Box
         position="absolute"
-        top="-100px"
-        left="-50px"
-        w={{ base: '200px', md: '300px' }}
-        h={{ base: '200px', md: '300px' }}
+        top={{ base: '-50px', md: '-100px' }}
+        right={{ base: '-30px', md: '-50px' }}
+        w={{ base: '150px', md: '300px' }}
+        h={{ base: '150px', md: '300px' }}
         bg={`${accentColor}10`}
         borderRadius="full"
         filter="blur(80px)"
+        zIndex="0"
       />
       
-      <Box maxW="7xl" mx="auto" position="relative" px={{ base: 0, md: 4 }}>
+      {/* Left-aligned decorative element (for balance) */}
+      <Box
+        position="absolute"
+        bottom={{ base: '-50px', md: '-100px' }}
+        left={{ base: '-30px', md: '-50px' }}
+        w={{ base: '150px', md: '300px' }}
+        h={{ base: '150px', md: '300px' }}
+        bg={`${accentColor}05`}
+        borderRadius="full"
+        filter="blur(80px)"
+        zIndex="0"
+      />
+      
+      <Box 
+        maxW="7xl" 
+        mx="auto" 
+        position="relative"
+        px={{ base: 2, md: 4 }}
+      >
         <Heading
           as="h2"
           textAlign="center"
@@ -85,7 +104,6 @@ const WhyChooseUsModern = () => {
           letterSpacing="tight"
           color="#545C4D"
           fontFamily="Playfair Display, serif"
-          px={{ base: 2, md: 0 }}
         >
           Nega bizni tanlashadi?
           <Text 
@@ -137,6 +155,8 @@ const WhyChooseUsModern = () => {
                 _hover={{
                   bg: `${accentColor}08`
                 }}
+                position="relative"
+                zIndex="1"
               >
                 <Circle
                   className="icon-circle"
