@@ -48,7 +48,7 @@ const Hero = () => {
               lineHeight="1.2"
               textShadow="0px 2px 4px rgba(0,0,0,0.1)"
             >
-              Sizning go'zalligingiz - <Box as="span" color="#957151">bizning faxrimiz</Box>
+              Sizning go'zalligingiz - <Box as="span" color="gray.500">bizning faxrimiz</Box>
             </Heading>
 
             <Text
