@@ -29,10 +29,10 @@ const Header = ({ activeTab, setActiveTab }) => {
       >
         <Flex align="center">
           <Heading as="h1" size="lg" color="brand.500" fontFamily="heading">
-            LaMore
+            Lamore
           </Heading>
-          <Box ml={2} fontSize="sm" color="secondary.500">
-            Go'zallik Saloni
+          <Box ml={2} fontSize="sm" color="Gray.500">
+            Beauty
           </Box>
         </Flex>
 
